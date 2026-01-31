@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 3029945374089250624}
   - component: {fileID: 7051957865976819035}
   - component: {fileID: 4208994377189395871}
-  - component: {fileID: 2049322767987771536}
   - component: {fileID: 5115478106314106909}
+  - component: {fileID: 1789303627993173866}
   m_Layer: 5
   m_Name: InventorySlot
   m_TagString: Untagged
@@ -77,19 +77,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2049322767987771536
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2047522132462493342}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c432b4bc0fb0646408175cf07a2219b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
-  isJobSlot: 0
 --- !u!114 &5115478106314106909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,3 +101,19 @@ MonoBehaviour:
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
+--- !u!114 &1789303627993173866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2047522132462493342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 877c0e68b387e364bbd336bed0c63b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
+  isJewelSlot: 0
+  isGlyhpSlot: 0
+  isMaskSlot: 0
+  isTableSlot: 0
