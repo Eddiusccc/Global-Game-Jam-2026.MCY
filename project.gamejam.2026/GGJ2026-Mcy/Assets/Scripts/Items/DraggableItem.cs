@@ -18,9 +18,6 @@ public class DraggableItem : MonoBehaviour,
     //Reference for knowing the parent slot position
     public string parentSlotItemIsIn;
     public string parentSlotItemWasIn;
-
-    
-
     private void Awake()
     {
         //Assign the canvas component
