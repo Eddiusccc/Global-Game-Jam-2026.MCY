@@ -1,16 +1,20 @@
 using DG.Tweening;
-using System.ComponentModel;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SceneController : MonoBehaviour
 {
     public static SceneController instance;
+    [HideInInspector] public SceneType sceneType;
 
     [Header("Scene References")]
-    public Canvas canvasCliente;
-    public Canvas canvasTaller;
+    public Canvas mainCanvas;
+    CanvasScaler canvasScaler;
+    public RectTransform clienteTransform;
+    public RectTransform tallerTransform;
     Camera mainCamera;
     public float transitionDuration = 1f;
+    float width;
     private void Awake()
     {
         instance = this;
@@ -18,37 +22,25 @@ public class SceneController : MonoBehaviour
     private void Start()
     {
         mainCamera = Camera.main;
+        canvasScaler = mainCanvas.gameObject.GetComponent<CanvasScaler>();
+        width = canvasScaler.referenceResolution.x;
+        SwitchScene(SceneType.Cliente);
     }
     public void SwitchScene(SceneType sceneType)
     {
-        Vector3 targetPos = ScenePosition(sceneType);
         switch (sceneType)
         {
             case SceneType.Cliente:
-                mainCamera.transform.DOMove(targetPos, transitionDuration)
-                    .SetEase(Ease.InOutQuad);
+                clienteTransform.DOAnchorPosX(0, transitionDuration);
+                tallerTransform.DOAnchorPosX(width, transitionDuration);
+                sceneType = SceneType.Cliente;
                 break;
             case SceneType.Taller:
-                mainCamera.transform.DOMove(targetPos, transitionDuration)
-                    .SetEase(Ease.InOutQuad);
+                tallerTransform.DOAnchorPosX(0, transitionDuration);
+                clienteTransform.DOAnchorPosX(-width, transitionDuration);
+                sceneType = SceneType.Taller;
                 break;
         }
-    }
-
-    Vector3 ScenePosition(SceneType sceneType)
-    {
-        Vector3 position = Vector3.zero;
-        switch (sceneType)
-        {
-            case SceneType.Cliente:
-                position = canvasCliente.transform.position;
-                break;
-            case SceneType.Taller:
-                position = canvasTaller.transform.position;
-                break;
-        }
-        position = new Vector3(position.x, position.y, mainCamera.transform.position.z);
-        return position;
     }
 
     private void Update()
