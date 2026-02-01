@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class SceneController : MonoBehaviour
 {
     public static SceneController instance;
-    [HideInInspector] public SceneType sceneType;
+    public SceneType _sceneType;
 
     [Header("Scene References")]
     [Space(10)]
@@ -54,23 +54,23 @@ public class SceneController : MonoBehaviour
             case SceneType.Cliente:
                 clienteTransform.DOAnchorPosX(0, transitionDuration);
                 tallerTransform.DOAnchorPosX(width, transitionDuration);
-                sceneType = SceneType.Cliente;
+                _sceneType = SceneType.Cliente;
                 break;
             case SceneType.Taller:
                 tallerTransform.DOAnchorPosX(0, transitionDuration);
                 clienteTransform.DOAnchorPosX(-width, transitionDuration);
-                sceneType = SceneType.Taller;
+                _sceneType = SceneType.Taller;
                 break;
             case SceneType.Perdiste:
                 loseTransform.DOAnchorPosY(0, transitionDuration);
                 winTransform.DOAnchorPosY(-height, transitionDuration);
-                sceneType = SceneType.Perdiste;
+                _sceneType = SceneType.Perdiste;
                 isPlaying = false;
                 break;
             case SceneType.Ganaste:
                 winTransform.DOAnchorPosY(0, transitionDuration);
                 loseTransform.DOAnchorPosY(height, transitionDuration);
-                sceneType = SceneType.Ganaste;
+                _sceneType = SceneType.Ganaste;
                 break;
             case SceneType.Jugando:
                 winTransform.DOAnchorPosY(-height, transitionDuration);
@@ -83,11 +83,11 @@ public class SceneController : MonoBehaviour
     #region BUTTONS
     public void OnCambiarEscenaButton()
     {
-        if (sceneType == SceneType.Cliente)
+        if (_sceneType == SceneType.Cliente)
         {
             SwitchScene(SceneType.Taller);
         }
-        else
+        else if(_sceneType == SceneType.Taller)
         {
             SwitchScene(SceneType.Cliente);
         }
@@ -117,7 +117,7 @@ public class SceneController : MonoBehaviour
     }
     public void OnManualButton()
     {
-        if (sceneType != SceneType.Perdiste)
+        if (_sceneType != SceneType.Perdiste)
         {
             manualWindow.SetActive(!manualWindow.activeSelf);
         }

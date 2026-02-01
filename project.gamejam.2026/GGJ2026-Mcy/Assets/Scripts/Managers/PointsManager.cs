@@ -13,7 +13,7 @@ public class PointsManager : MonoBehaviour
     public int minMaxVariacionDinero;
     public int dineroWinCondition;
     public int dineroPenalizacion;
-    float timeLeft = 0f;
+    float timeLeft = 10f;
 
     #endregion
     void Awake()
@@ -67,6 +67,7 @@ public class PointsManager : MonoBehaviour
         float variation = Random.Range(-minMaxVariacionSegundos, minMaxVariacionSegundos);
         float newTime = segundosParaRealizarLaMascara + variation;
         timeLeft = newTime;
+        isTimeRunning = true;
     }
 
     void TimeTick()
@@ -76,11 +77,12 @@ public class PointsManager : MonoBehaviour
     }
     void UpdateTimeUI()
     {
+        if(isTimeRunning == false){return;}
         int minutos = Mathf.FloorToInt(timeLeft / 60f);
         int segundos = Mathf.FloorToInt(timeLeft % 60f);
 
         currentTimeText.text = $"{minutos:00}:{segundos:00}";
-        if (segundos <= 0)
+        if (segundos <= 0 && isTimeRunning == true && timeLeft == 0)
         {
             isTimeRunning = false;
             Debug.Log("Tiempo terminado");
@@ -90,10 +92,7 @@ public class PointsManager : MonoBehaviour
     public void StartTimer()
     {
         SetNewTime();
-        isTimeRunning = true;
     }
-
-
 
     #endregion
 }

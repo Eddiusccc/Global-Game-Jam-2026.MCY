@@ -1,0 +1,80 @@
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
+
+public class DraggableItem : MonoBehaviour, 
+    IBeginDragHandler, 
+    IDragHandler, 
+    IEndDragHandler,
+    IPointerDownHandler
+{
+    // Reference to the Canvas component
+    [SerializeField] public Canvas canvas;
+    // Reference to the RectTransform component
+    private RectTransform rectTransform;
+    //Reference to the parent to return to after drag
+    [HideInInspector] public Transform parentAfterDrag;
+    //Reference to Image for disable and enabling RayCast
+    public Image image;
+    //Reference for knowing the parent slot position
+    public string parentSlotItemIsIn;
+    public string parentSlotItemWasIn;
+    private TypeItem typeItem;
+    private void Awake()
+    {
+        //Assign the RectTransform component
+        rectTransform = GetComponent<RectTransform>();
+        Debug.Log(rectTransform);
+
+        typeItem = GetComponent<TypeItem>();
+        typeItem.ItemName = this.gameObject.name;
+    }
+    //Reference just for Jewels to know when they are clicked
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        if (typeItem.isJewel)
+        {
+            typeItem.JewelChecked = !typeItem.JewelChecked;
+        }
+    }
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        Debug.Log("OnBeginDrag");
+        UpdateParentSlotItemWasIn();
+        //Disable canvas to avoid checks in the drop moment
+        parentAfterDrag = transform.parent;
+        transform.SetParent(transform.root);
+        transform.SetAsLastSibling();
+        image.raycastTarget = false;
+    }
+    public void OnDrag(PointerEventData eventData)
+    {
+        Debug.Log(eventData);
+        rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
+    }
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        Debug.Log("OnEndDrag");
+        transform.SetParent(parentAfterDrag);
+        image.raycastTarget = true;
+        UpdateParentSlotItemIsIn();
+    }
+    //this will tell you the parent slot name where the item is already, not the canvas
+    public string KnowParentSlot()
+    {
+        Transform parentTransform = this.transform.parent;
+        string parentName = parentTransform.gameObject.name;
+        return parentName;
+    }
+    //this will update the parent slot name position where the item is in
+    public void UpdateParentSlotItemIsIn()
+    {
+        parentSlotItemIsIn = KnowParentSlot();
+    }
+    //this will update the parent slot name position where the item was in
+    public void UpdateParentSlotItemWasIn()
+    {
+        parentSlotItemWasIn = KnowParentSlot();
+    }
+
+}
