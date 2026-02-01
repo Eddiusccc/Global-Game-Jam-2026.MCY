@@ -1,5 +1,6 @@
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SceneController : MonoBehaviour
@@ -8,23 +9,43 @@ public class SceneController : MonoBehaviour
     [HideInInspector] public SceneType sceneType;
 
     [Header("Scene References")]
+    [Space(10)]
     public Canvas mainCanvas;
     CanvasScaler canvasScaler;
     public RectTransform clienteTransform;
     public RectTransform tallerTransform;
-    Camera mainCamera;
+    public RectTransform loseTransform;
+    public RectTransform winTransform;
+    public RectTransform mainMenuTransform;
+    public Button mainMenuButton, quitButton;
+    public bool isPlaying = false;
+    [Header("UI")]
+    [Space(10)]
+    public GameObject manualWindow;
+    public Button manualButton;
+    public Button resetLoseButton;
+    public Button resetWinButton;
     public float transitionDuration = 1f;
+    public Button cambiarEscenaButton;
     float width;
+    float height;
     private void Awake()
     {
         instance = this;
     }
     private void Start()
     {
-        mainCamera = Camera.main;
+        resetLoseButton.onClick.AddListener(OnResetButton);
+        resetWinButton.onClick.AddListener(OnResetButton);
+        cambiarEscenaButton.onClick.AddListener(OnCambiarEscenaButton);
+        manualButton.onClick.AddListener(OnManualButton);
+        mainMenuButton.onClick.AddListener(OnMainMenuButton);
+        quitButton.onClick.AddListener(OnQuitButton);
         canvasScaler = mainCanvas.gameObject.GetComponent<CanvasScaler>();
         width = canvasScaler.referenceResolution.x;
+        height = canvasScaler.referenceResolution.y;
         SwitchScene(SceneType.Cliente);
+        AudioManager.instance.Play("bg");
     }
     public void SwitchScene(SceneType sceneType)
     {
@@ -40,12 +61,80 @@ public class SceneController : MonoBehaviour
                 clienteTransform.DOAnchorPosX(-width, transitionDuration);
                 sceneType = SceneType.Taller;
                 break;
+            case SceneType.Perdiste:
+                loseTransform.DOAnchorPosY(0, transitionDuration);
+                winTransform.DOAnchorPosY(-height, transitionDuration);
+                sceneType = SceneType.Perdiste;
+                isPlaying = false;
+                break;
+            case SceneType.Ganaste:
+                winTransform.DOAnchorPosY(0, transitionDuration);
+                loseTransform.DOAnchorPosY(height, transitionDuration);
+                sceneType = SceneType.Ganaste;
+                break;
+            case SceneType.Jugando:
+                winTransform.DOAnchorPosY(-height, transitionDuration);
+                loseTransform.DOAnchorPosY(height, transitionDuration);
+                SwitchScene(SceneType.Cliente);
+                break;
         }
     }
 
+    #region BUTTONS
+    public void OnCambiarEscenaButton()
+    {
+        if (sceneType == SceneType.Cliente)
+        {
+            SwitchScene(SceneType.Taller);
+        }
+        else
+        {
+            SwitchScene(SceneType.Cliente);
+        }
+    }
+    public void OnResetButton()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    public void OnMainMenuButton()
+    {
+        AudioManager.instance.Play("choir");
+        if (!isPlaying)
+        {
+            mainMenuTransform.DOAnchorPosY(height, transitionDuration).SetEase(Ease.InOutQuad).OnComplete(() =>
+         {
+             isPlaying = true;
+             ChatController.instance.MakeNewRequest();
+         });
+        }
+        else
+        {
+            mainMenuTransform.DOAnchorPosY(height, transitionDuration).SetEase(Ease.InOutQuad).OnComplete(() =>
+         {
+             Time.timeScale = 1f;
+         });
+        }
+    }
+    public void OnManualButton()
+    {
+        if (sceneType != SceneType.Perdiste)
+        {
+            manualWindow.SetActive(!manualWindow.activeSelf);
+        }
+    }
+    public void OnQuitButton()
+    {
+        Application.Quit();
+    }
+    #endregion
     private void Update()
     {
-        if(Input.GetKey(KeyCode.Escape))
+        if (Input.GetKey(KeyCode.J))
+        {
+            SwitchScene(SceneType.Jugando);
+            return;
+        }
+        if (Input.GetKey(KeyCode.Escape))
         {
             SwitchScene(SceneType.Taller);
             return;
@@ -55,11 +144,24 @@ public class SceneController : MonoBehaviour
             SwitchScene(SceneType.Cliente);
             return;
         }
+        if (Input.GetKey(KeyCode.L))
+        {
+            SwitchScene(SceneType.Perdiste);
+            return;
+        }
+        if (Input.GetKey(KeyCode.W))
+        {
+            SwitchScene(SceneType.Ganaste);
+            return;
+        }
     }
 
     public enum SceneType
     {
         Cliente,
-        Taller
+        Taller,
+        Perdiste,
+        Ganaste,
+        Jugando
     }
 }

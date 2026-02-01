@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 625d10663abbcbc4ba9ba815f9aaebff, type: 3}
+  m_Name: Mascara-Naturaleza
+  m_EditorClassIdentifier: Assembly-CSharp::PetitionsData
+  maskType: 0
+  gemType: 0
+  gliphType: 0
+  lines:
+  - ' Quiero que mis plantas crezcan rapido, y bonitas.'
+  - ' Este clima me parece muy malo. Cambialo.'

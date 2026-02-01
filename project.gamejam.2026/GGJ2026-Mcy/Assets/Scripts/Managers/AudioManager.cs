@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
@@ -9,7 +8,6 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
         instance = this;
         SetupAudios();
     }
@@ -19,7 +17,21 @@ public class AudioManager : MonoBehaviour
         if (sound != null)
         {
             sound.source.PlayOneShot(sound.clip);
+            return;
         }
+    }
+
+    public void PlaySFXRandomPitch(string name, float threshold)
+    {
+        Sound sound = Array.Find(sounds, s => s.name == name);
+        if (sound != null)
+        {
+            float rng = UnityEngine.Random.Range(-threshold + sound.pitch, threshold + sound.pitch);
+            sound.source.pitch = rng;
+            sound.source.PlayOneShot(sound.clip);
+            return;
+        }
+
     }
     public void Play(string name)
     {
@@ -59,7 +71,7 @@ public class Sound
     public AudioClip clip;
     [HideInInspector] public AudioSource source;
     [Range(0f, 1f)] public float volume;
-    [Range(0.1f, 3f)] public float pitch;
+    [Range(0.2f, 2f)] public float pitch;
     public bool isLoop = false;
     public bool isPlayAwake = false;
 }
