@@ -16,6 +16,8 @@ public class TypeItem : MonoBehaviour
     public bool HasJewel;
     public bool HasGlyph;
     public bool IsComplete;
+    public bool IsBeingUsed;
+    public string ItemName;
     public MaskWithFace[] maskWithFace;
 
     int currentMaskIndex = 0;
