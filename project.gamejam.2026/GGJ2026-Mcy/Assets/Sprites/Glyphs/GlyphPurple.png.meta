@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 4f11f81fd4cbb384da2d01109929d66c
+guid: a0065f0906a7b784fa5f6b9ff7decf3e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6897815670648301676
-    second: Jewel_0
+      213: 1436267051424060529
+    second: GlyphPurple_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Jewel_0
+      name: GlyphPurple_0
       rect:
         serializedVersion: 2
-        x: 15
-        y: 6
-        width: 143
-        height: 143
+        x: 24
+        y: 15
+        width: 166
+        height: 151
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c686d176ec6f9bf50800000000000000
-      internalID: 6897815670648301676
+      spriteID: 1749aba0645aee310800000000000000
+      internalID: 1436267051424060529
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Jewel_0: 6897815670648301676
+      GlyphPurple_0: 1436267051424060529
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

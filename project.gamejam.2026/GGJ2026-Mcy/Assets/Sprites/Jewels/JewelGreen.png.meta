@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: dc1328169732ac2458eaf90d86c8cd26
+guid: a545a859c42742e429632fb041657fd1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5729446787718592267
-    second: facial-mask_0
+      213: 637811144639004796
+    second: JewelGreen_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: facial-mask_0
+      name: JewelGreen_0
       rect:
         serializedVersion: 2
-        x: 60
-        y: 45
-        width: 380
-        height: 410
+        x: 8
+        y: 7
+        width: 130
+        height: 168
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b07387d5f75138f40800000000000000
-      internalID: 5729446787718592267
+      spriteID: c704ef55bd5f9d800800000000000000
+      internalID: 637811144639004796
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      facial-mask_0: 5729446787718592267
+      JewelGreen_0: 637811144639004796
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
