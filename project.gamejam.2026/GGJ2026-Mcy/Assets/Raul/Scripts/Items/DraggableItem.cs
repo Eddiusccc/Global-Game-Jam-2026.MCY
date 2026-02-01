@@ -9,7 +9,7 @@ public class DraggableItem : MonoBehaviour,
     IPointerDownHandler
 {
     // Reference to the Canvas component
-    [SerializeField] private Canvas canvas;
+    [SerializeField] public Canvas canvas;
     // Reference to the RectTransform component
     private RectTransform rectTransform;
     //Reference to the parent to return to after drag
@@ -21,11 +21,11 @@ public class DraggableItem : MonoBehaviour,
     public string parentSlotItemWasIn;
     private TypeItem typeItem;
     private void Awake()
-    {   
-        //Assign the canvas component
-        canvas = GetComponentInParent<Canvas>();
+    {
         //Assign the RectTransform component
         rectTransform = GetComponent<RectTransform>();
+        Debug.Log(rectTransform);
+
         typeItem = GetComponent<TypeItem>();
         typeItem.ItemName = this.gameObject.name;
     }
@@ -49,7 +49,7 @@ public class DraggableItem : MonoBehaviour,
     }
     public void OnDrag(PointerEventData eventData)
     {
-        //Debug.Log("OnDrag");
+        Debug.Log(eventData);
         rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
     }
     public void OnEndDrag(PointerEventData eventData)
@@ -76,4 +76,5 @@ public class DraggableItem : MonoBehaviour,
     {
         parentSlotItemWasIn = KnowParentSlot();
     }
+
 }
