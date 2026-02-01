@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3648440882001638324}
   - component: {fileID: 8840988665667462433}
   m_Layer: 5
-  m_Name: Mask
+  m_Name: Fortuna
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -69,7 +69,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 5238722320281669552, guid: 703f2775b37480e4793df8b63c841d14, type: 3}
+  m_Sprite: {fileID: 5329043861609838111, guid: c60fda78826110c4aa36d3ba7d3b51c1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85aa19db1db81eb4699ba60d2a8bbf73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TypeItem
-  maskType: 0
+  maskType: 1
   gemType: 0
   gliphType: 0
   elementType: 0

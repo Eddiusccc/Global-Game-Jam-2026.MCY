@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2705819517860038258}
   - component: {fileID: 4054263981092624756}
   m_Layer: 5
-  m_Name: Jewel
+  m_Name: Amatista
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -67,7 +67,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1436267051424060529, guid: a0065f0906a7b784fa5f6b9ff7decf3e, type: 3}
+  m_Sprite: {fileID: -8248283058958860411, guid: 411d7acfe958db64297dc07371673d46, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -107,9 +107,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TypeItem
   maskType: 0
-  gemType: 0
+  gemType: 3
   gliphType: 0
-  elementType: 0
+  elementType: 3
   image: {fileID: 3070550924222968587}
   isMask: 0
   isJewel: 1
