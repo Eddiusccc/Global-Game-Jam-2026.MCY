@@ -5,7 +5,8 @@ using UnityEngine.UI;
 public class DraggableItem : MonoBehaviour, 
     IBeginDragHandler, 
     IDragHandler, 
-    IEndDragHandler
+    IEndDragHandler,
+    IPointerDownHandler
 {
     // Reference to the Canvas component
     [SerializeField] private Canvas canvas;
@@ -27,6 +28,14 @@ public class DraggableItem : MonoBehaviour,
         rectTransform = GetComponent<RectTransform>();
         typeItem = GetComponent<TypeItem>();
         typeItem.ItemName = this.gameObject.name;
+    }
+    //Reference just for Jewels to know when they are clicked
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        if (typeItem.isJewel)
+        {
+            typeItem.JewelChecked = !typeItem.JewelChecked;
+        }
     }
     public void OnBeginDrag(PointerEventData eventData)
     {

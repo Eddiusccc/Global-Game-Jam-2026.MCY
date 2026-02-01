@@ -12,9 +12,10 @@ public class InventoryTableSlot : MonoBehaviour, IDropHandler
 
         if (draggableItem != null && typeItem.isMask)
         {
-            draggableItem.parentAfterDrag = transform;
-            gameObject.GetComponent<TypeSlot>().HasMask = true;
             typeItem.IsBeingUsed = true;
+            typeItem.IsBeingUsedOnCincel = false;
+            gameObject.GetComponent<TypeSlot>().HasMask = true;
+            draggableItem.parentAfterDrag = transform;
         } 
     }
 }

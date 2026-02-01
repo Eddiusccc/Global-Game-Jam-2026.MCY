@@ -13,7 +13,8 @@ public class InventoryFinishedSlot : MonoBehaviour, IDropHandler
         if (draggableItem != null && typeItem.isMask && typeItem.IsComplete)
         {
             draggableItem.parentAfterDrag = transform;
-            //gameObject.GetComponent<TypeItem>().HasJewel = true;
+            typeItem.IsBeingUsed = true;
+            typeItem.IsBeingUsedOnCincel = false;
         }
     }
 }

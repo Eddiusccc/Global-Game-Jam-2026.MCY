@@ -19,7 +19,7 @@ public class Cincel : MonoBehaviour
         TypeSlot typeSlot = inventoryTableSlot.GetComponent<TypeSlot>();
         FindAllDraggablesItem();
 
-        if (typeSlot.HasMask && typeItem.isMask)
+        if (typeSlot.HasMask && typeItem.isMask && typeItem.IsBeingUsedOnCincel)
         {
             Debug.Log("Cincel used on mask!");
             typeItem.SetMaskSprite();
@@ -33,12 +33,10 @@ public class Cincel : MonoBehaviour
         foreach (DraggableItem draggableitem in allMasks)
         {
             TypeItem item = draggableitem.GetComponent<TypeItem>();
-            if (item.IsBeingUsed && item.isMask)
+            if (item.IsBeingUsed && item.isMask && item.IsBeingUsedOnCincel)
             {
-                // Example action: log the name of the GameObject
                 Debug.Log(item.ItemName + " is being used.");
                 this.draggableItem = draggableitem;
-                break; // Exit the loop after finding the first match 
             }
         }
     }
