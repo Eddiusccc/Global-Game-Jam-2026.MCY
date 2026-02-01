@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class InventoryMaskSlot : MonoBehaviour, IDropHandler
+public class InventoryCincelSlot : MonoBehaviour, IDropHandler
 {
     public void OnDrop(PointerEventData eventData)
     {
@@ -10,12 +10,12 @@ public class InventoryMaskSlot : MonoBehaviour, IDropHandler
         DraggableItem draggableItem = droppedObject.GetComponent<DraggableItem>();
         TypeItem typeItem = droppedObject.GetComponent<TypeItem>();
 
-        if (draggableItem != null && typeItem.isJewel)
+        if (draggableItem != null && typeItem.isMask)
         {
-            gameObject.GetComponent<TypeItem>().HasJewel = true;
-            gameObject.GetComponent<TypeItem>().gemType = typeItem.gemType;
-            gameObject.GetComponent<TypeItem>().elementType = typeItem.elementType;
+            typeItem.IsBeingUsed = true;
+            typeItem.IsBeingUsedOnCincel = true;
+            gameObject.GetComponent<TypeSlot>().HasMask = true;
             draggableItem.parentAfterDrag = transform;
-        }
+        } 
     }
 }

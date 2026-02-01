@@ -12,10 +12,8 @@ GameObject:
   - component: {fileID: 7051957865976819035}
   - component: {fileID: 4208994377189395871}
   - component: {fileID: 5115478106314106909}
-  - component: {fileID: 8555709980345080680}
-  - component: {fileID: 8245548894400149334}
   m_Layer: 5
-  m_Name: InventoryFinishedSlot
+  m_Name: CincelTable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.90612614, g: 0.33460295, b: 0.90943396, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -98,37 +96,7 @@ MonoBehaviour:
   m_ChildAlignment: 4
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 279, y: 272}
+  m_CellSize: {x: 150, y: 150}
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
---- !u!114 &8555709980345080680
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2047522132462493342}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d0b2cae3ecb9774c9dd9272501853aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InventoryFinishedSlot
---- !u!114 &8245548894400149334
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2047522132462493342}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d296869b2e1da074dbffd49ec220b104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TypeSlot
-  isJewelSlot: 0
-  isGlyhpSlot: 0
-  isMaskSlot: 0
-  isTableSlot: 0
-  isFinishedSlot: 0
-  HasMask: 0
