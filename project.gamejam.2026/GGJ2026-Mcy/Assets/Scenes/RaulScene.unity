@@ -183,6 +183,8 @@ MonoBehaviour:
   HasJewel: 0
   HasGlyph: 0
   IsComplete: 0
+  IsBeingUsed: 0
+  ItemName: 
   maskWithFace:
   - spriteMask: {fileID: 5238722320281669552, guid: 703f2775b37480e4793df8b63c841d14, type: 3}
     gliphType: 0
@@ -432,8 +434,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 224, y: 227}
-  m_SizeDelta: {x: 279, y: 272}
+  m_AnchoredPosition: {x: 229.18785, y: 227}
+  m_SizeDelta: {x: 285.376, y: 272}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &499474353
 MonoBehaviour:
@@ -494,6 +496,8 @@ MonoBehaviour:
   HasJewel: 0
   HasGlyph: 0
   IsComplete: 0
+  IsBeingUsed: 0
+  ItemName: 
   maskWithFace:
   - spriteMask: {fileID: 5238722320281669552, guid: 703f2775b37480e4793df8b63c841d14, type: 3}
     gliphType: 0
@@ -1154,6 +1158,8 @@ MonoBehaviour:
   HasJewel: 0
   HasGlyph: 0
   IsComplete: 0
+  IsBeingUsed: 0
+  ItemName: 
   maskWithFace: []
 --- !u!114 &1275776451
 MonoBehaviour:
