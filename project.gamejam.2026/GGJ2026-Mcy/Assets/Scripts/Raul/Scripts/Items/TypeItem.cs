@@ -9,6 +9,10 @@ public class TypeItem : MonoBehaviour
     public GemType gemType;
     public GliphType gliphType;
     public Elements elementType;
+    public  MaskType FinalMaskRequirement;
+    public  GemType FinalgliphRequirement;
+    public  Elements FinalelementRequirement;
+
     public Image image;
     //Variable to hold the item type as string
     public bool isMask;

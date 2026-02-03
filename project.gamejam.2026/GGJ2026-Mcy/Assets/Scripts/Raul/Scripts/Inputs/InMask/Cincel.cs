@@ -22,6 +22,7 @@ public class Cincel : MonoBehaviour
         if (typeSlot.HasMask && typeItem.isMask && typeItem.IsBeingUsedOnCincel)
         {
             Debug.Log("Cincel used on mask!");
+            typeItem.HasGlyph = true;
             typeItem.SetMaskSprite();
         }
     }

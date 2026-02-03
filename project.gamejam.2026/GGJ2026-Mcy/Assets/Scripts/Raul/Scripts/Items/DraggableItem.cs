@@ -32,10 +32,7 @@ public class DraggableItem : MonoBehaviour,
     //Reference just for Jewels to know when they are clicked
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (typeItem.isJewel)
-        {
-            typeItem.JewelChecked = !typeItem.JewelChecked;
-        }
+        typeItem.JewelChecked = true;
     }
     public void OnBeginDrag(PointerEventData eventData)
     {

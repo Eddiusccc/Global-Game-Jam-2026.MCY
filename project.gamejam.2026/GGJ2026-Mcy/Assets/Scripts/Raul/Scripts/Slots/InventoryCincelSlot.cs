@@ -1,3 +1,4 @@
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -16,6 +17,7 @@ public class InventoryCincelSlot : MonoBehaviour, IDropHandler
             typeItem.IsBeingUsedOnCincel = true;
             gameObject.GetComponent<TypeSlot>().HasMask = true;
             draggableItem.parentAfterDrag = transform;
-        } 
+        }
     }
+
 }
