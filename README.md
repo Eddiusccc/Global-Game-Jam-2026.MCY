@@ -3,6 +3,7 @@
 # MaskCara
 
 Juego realizado por:
+
 Aaron Rumbos (Artista)
 
 Miguel Orsini (Artista)
